@@ -1,0 +1,44 @@
+POST http://localhost:8000/api/signup
+Content-Type: application/json
+
+{
+  "name": "Kasun Gunasekara",
+  "email": "mails4kasun@gmail.com",
+  "password": "kasun123"
+}
+
+###Admin creation process
+POST http://localhost:8000/api/signup
+Content-Type: application/json
+
+{
+  "name": "Test Admin",
+  "email": "test@gmail.com",
+  "password": "test1234",
+  "role": 1
+}
+
+###correct credentials sign in - normal user
+POST http://localhost:8000/api/signin
+Content-Type: application/json
+
+{
+  "email": "mails4kasun@gmail.com",
+  "password": "kasun123"
+}
+###incorrect credentials sign in - normal user
+POST http://localhost:8000/api/signin
+Content-Type: application/json
+
+{
+  "email": "kumaryniks@gmail.com",
+  "password": "kumary"
+}
+###correct credentials sign in - admin user
+POST http://localhost:8000/api/signin
+Content-Type: application/json
+
+{
+  "email": "fyugma@gmail.com",
+  "password": "yugma123"
+}

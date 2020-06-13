@@ -1,0 +1,43 @@
+###Create Doctor sample rest
+POST http://localhost:8000/api/doctor/create/5ee454f92e0b8f1cd8e4eb9a
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWU0NTRmOTJlMGI4ZjFjZDhlNGViOWEiLCJpYXQiOjE1OTIwMjUwNTR9.-SVUI-ekiZvwHTo4LjoOxZtDEwQkiv5d2UN3sd3PhMg
+
+{
+  "name": "MRS AMALKA EDIRISINGHE",
+  "specialization" : "Psychologist",
+  "maxPatientsPerDay": 10,
+  "availableWeekDay": "Wednesday",
+  "availableTime": "8.30 am",
+  "roomNo": "B201",
+  "appointments": [
+    
+  ]
+}
+
+###readById
+GET http://localhost:8000/api/doctor/5ee46fc31adbaf4898c2f13c
+
+###Read all doctors
+GET http://localhost:8000/api/doctors
+
+###Add an appointment to a doctor
+###step 1 - First sign in using auth-normal user
+###grap the token from the console and paste next to bearer
+###set the url - 1. doctor id (get it using readById rest url)
+###            - 2. user id (get the same _id which you get from the auth normal user login)
+###http://localhost:8000/api/doctor/addAppointment/:doctorId/:userId
+PUT http://localhost:8000/api/doctor/addAppointment/5ee49380fdb4cd530480ca41/5ee4743249c57337b4617b40
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWU0NzQzMjQ5YzU3MzM3YjQ2MTdiNDAiLCJpYXQiOjE1OTIwMzAzMDB9.MX-TpYHHVfkoMzjec8evjgWK3Tydi4RitJHcfmeu3RE
+
+{
+  "appointments": {
+    "day": "2020-06-13",
+    "tokenNumber": 1
+  }
+}
+
+###get next available date and token
+###doctor ids - 5ee46fc31adbaf4898c2f13c, 5ee49380fdb4cd530480ca41, 5ee4a0379872a74ea4fc8d35
+GET http://localhost:8000/api/doctor/5ee46fc31adbaf4898c2f13c/getNextAvailableDateAndToken
